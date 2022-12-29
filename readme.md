@@ -1,0 +1,1 @@
+docker build -t loxley-backend . && docker run --name loxley-backend -dp 8000:80 loxley-backend
