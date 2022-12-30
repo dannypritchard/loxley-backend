@@ -3,7 +3,7 @@ extern crate rocket;
 
 #[get("/")]
 async fn index() -> &'static str {
-    "Hello, world!"
+    "{\"hello\": \"world\"}"
 }
 
 #[rocket::main]
