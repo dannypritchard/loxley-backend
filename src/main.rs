@@ -36,7 +36,7 @@ struct HelloWorld {
 #[get("/")]
 async fn index() -> Json<HelloWorld> {
     Json(HelloWorld {
-        hello: "world i guess".to_owned(),
+        hello: "to the gamers".to_owned(),
     })
 }
 
