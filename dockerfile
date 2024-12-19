@@ -1,4 +1,4 @@
-FROM rust:1.61 as builder
+FROM rust:1.83 as builder
 RUN USER=root
 
 RUN mkdir loxley-backend
