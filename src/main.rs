@@ -1,5 +1,7 @@
 #[macro_use]
 extern crate rocket;
+use std::vec;
+
 use rocket::fairing::{Fairing, Info, Kind};
 use rocket::http::Header;
 use rocket::serde::{json::Json, Serialize};
@@ -29,14 +31,28 @@ impl Fairing for Cors {
 
 #[derive(Serialize)]
 #[serde(crate = "rocket::serde")]
-struct HelloWorld {
-    hello: String,
+struct Block {
+    title: String,
+    content: String,
+}
+
+#[derive(Serialize)]
+#[serde(crate = "rocket::serde")]
+struct Content {
+    title: String,
+    subtitle: String,
+    content: Vec<Block>,
 }
 
 #[get("/")]
-async fn index() -> Json<HelloWorld> {
-    Json(HelloWorld {
-        hello: "to the gamers".to_owned(),
+async fn index() -> Json<Content> {
+    Json(Content {
+        title: "Loxley Industries".to_owned(),
+        subtitle: "Precision crafted software".to_owned(),
+        content: vec![Block {
+            title: "title".to_owned(),
+            content: "content".to_owned(),
+        }],
     })
 }
 
