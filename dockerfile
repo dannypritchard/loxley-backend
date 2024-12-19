@@ -6,7 +6,7 @@ WORKDIR /loxley-backend
 ADD . ./
 RUN cargo clean && cargo build --release
 
-FROM debian:bullseye
+FROM debian:bookworm-slim
 ARG APP=/user/src/app
 RUN mkdir -p {$APP}
 
